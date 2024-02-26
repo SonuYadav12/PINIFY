@@ -1,0 +1,11 @@
+Data association
+ek model se doosre model ke data to jod dena id k througn 
+matlab ki agar app ke paas ek user hain to wo psot banaayega hi jab post banega to wo user ke dwara hi banega to hum 
+kya karte hain jab do aise data aapas mein closely related hote hain to hum dono ko 
+jod dete hain ki ek model ke bane huye data ki id ko doosre model ej data ko 
+dedete hain aur is model ke data ki id pichle model k data ko deddte hain.
+
+
+//How to start this project;
+
+do model banaaoo
