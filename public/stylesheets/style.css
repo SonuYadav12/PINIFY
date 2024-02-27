@@ -32,6 +32,11 @@ body {
   font-weight: bold;
   color: #323232;
 }
+.signup .term {
+  font-size: 11px;
+  color: #888; 
+  padding: 7px;
+}
 
 .signup input[type="email"],
 .signup input[type="password"],
