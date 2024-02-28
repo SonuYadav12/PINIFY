@@ -1,0 +1,127 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #000000); /* White to Black gradient background */
+    color: #ffffff; 
+    margin: 0; 
+    padding: 0; 
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background-color: #000000;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.logo {
+    color: #49ffd0;
+    background-color: #000000;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.navLink {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    background-color: #000000;
+}
+
+.navLink li {
+    list-style: none;
+}
+
+.navLink a {
+    color: aquamarine;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+
+.navLink a:hover {
+    color: #588275;
+}
+
+.lines div {
+    width: 25px;
+    height: 3px;
+    background-color: aquamarine;
+    margin: 5px;
+    cursor: crosshair;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 17vh;
+}
+
+.container {
+    padding-top: 13vh;
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+    column-count: 6;
+    column-gap: 20px;
+}
+
+.box {
+    width: 100%;
+    margin-bottom: 20px;
+    break-inside: avoid;
+    border-radius: 15px;
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: opacity 0.3s, box-shadow 0.3s;
+}
+
+.box img:hover {
+    opacity: 0.95;
+    box-shadow: 0 0 10px #fff;
+}
+
+.caption {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2px;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 786px) {
+    .container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        column-count: 1;
+    }
+}

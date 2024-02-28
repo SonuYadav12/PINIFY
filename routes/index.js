@@ -9,7 +9,11 @@ passport.use(new localStrategy(userModel.authenticate()));
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  res.render("login");
+});
+
+router.get("/feed", function (req, res, next) {
+  res.render("feed");
 });
 
 //This comment code was just to learn data association
@@ -55,8 +59,10 @@ router.get("/", function (req, res, next) {
 // });
 
 router.get("/profile",isLoggedIN,(req,res)=>{
-  res.send("Hello how are you");
+  res.render("profile");
 })
+
+
 
 router.post("/register", (req, res) => {
   const { username, email, fullname } = req.body;
@@ -73,7 +79,7 @@ router.post("/register", (req, res) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "profile",
+    successRedirect: "/profile",
     failureRedirect: "/",
   }),
   (req, res) => {}
@@ -89,10 +95,11 @@ router.get("/logout", (req, res, next) => {
 });
 
 function isLoggedIN(req, res, next) {
+  console.log("log in")
   if (req.isAuthenticated()) {
     return next();
   }
-  res.redirect("/");
+  res.redirect("/profile");
 }
 
 module.exports = router;
