@@ -9,7 +9,7 @@ passport.use(new localStrategy(userModel.authenticate()));
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("login");
+  res.render("login",{error:req.flash("error")});
 });
 
 router.get("/feed", function (req, res, next) {
@@ -58,9 +58,25 @@ router.get("/feed", function (req, res, next) {
 //   }
 // });
 
-router.get("/profile",isLoggedIN,(req,res)=>{
-  res.render("profile");
-})
+router.get("/profile", isLoggedIN, async (req, res) => {
+  try {
+    const user = await userModel.findOne({
+      username: req.session.passport.user
+    });
+
+    if (!user) {
+      // Handle case when user is not found
+      return res.status(404).send("User not found");
+    }
+
+    res.render("profile", { user });
+  } catch (error) {
+    // Handle database or other errors
+    console.error("Error fetching user:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 
 
 
@@ -81,6 +97,7 @@ router.post(
   passport.authenticate("local", {
     successRedirect: "/profile",
     failureRedirect: "/",
+    failureFlash:true
   }),
   (req, res) => {}
 );
